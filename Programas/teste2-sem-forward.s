@@ -6,6 +6,7 @@ Vetor: .space 1
 
 .text	
 MAIN:   jal ra, INICIALIZA
+	nop
 
 	la a0,Vetor
 	li a1,N
@@ -23,9 +24,9 @@ MAIN:   jal ra, INICIALIZA
 	nop
 
 FINAL:	jal zero, FINAL
-		nop
 
-SWAP:	slli t1,a1,2
+SWAP:	nop
+	slli t1,a1,2
 	nop
     	nop
     	nop
@@ -40,10 +41,12 @@ SWAP:	slli t1,a1,2
     	nop
 	sw t2,0(t1)
 	sw t0,4(t1)
-	ret
+	nop
+	jalr zero, ra, 0
 	nop
 
-SORT:	addi sp,sp,-20
+SORT:	nop
+	addi sp,sp,-20
 	nop
     	nop
     	nop
@@ -53,6 +56,7 @@ SORT:	addi sp,sp,-20
 	sw s1,4(sp)
 	sw s0,0(sp)	# guarda 5 registradores
 	
+	nop
 	mv s2,a0
 	mv s3,a1
 	mv s0,zero
@@ -86,16 +90,19 @@ for2:	blt s1,zero,exit2
 	nop
 	mv a0,s2
 	mv a1,s1
+	nop
 	jal ra, SWAP
 	nop
 	addi s1,s1,-1
 	jal zero, for2
 	nop
-exit2:	addi s0,s0,1
+exit2:	nop
+	addi s0,s0,1
 	jal zero, for1
 	nop
 	nop
-exit1: 	lw s0,0(sp)	# recupera os registradores e retorna
+exit1: 	nop
+	lw s0,0(sp)	# recupera os registradores e retorna
 	lw s1,4(sp)
 	lw s2,8(sp)
 	lw s3,12(sp)
@@ -104,14 +111,16 @@ exit1: 	lw s0,0(sp)	# recupera os registradores e retorna
 	nop
     	nop
     	nop
-	ret
+	jalr zero, ra, 0
 	nop
 
-SHOW:	mv t0,a0
+SHOW:	nop
+	mv t0,a0
 	mv t1,a1
 	mv t2,zero
 
-loop1: 	beq t2,t1,fim1
+loop1: 	nop
+	beq t2,t1,fim1
 	nop
 	li a7,1
 	lw a0,0(t0)
@@ -126,7 +135,8 @@ loop1: 	beq t2,t1,fim1
 	j loop1
 	nop
 
-fim1:	li a7,11
+fim1:	nop
+	li a7,11
 	li a0,10
 	#ecall
 	ret
@@ -136,7 +146,8 @@ fim1:	li a7,11
 #	t1 = tamanho do vetor
 # Esse procedimento mostra todos os elementos do vetor, um por um no registrador a0
 # para que possamos mostrar ele no Deeds. Ele também mostra o endereco no registrador a1.
-SHOW2:	mv t0,a0
+SHOW2:	nop
+	mv t0,a0
 	mv t1,a1
 	mv t2,zero
 	nop
