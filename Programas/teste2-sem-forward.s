@@ -8,17 +8,17 @@ Vetor: .space 1
 MAIN:   jal ra, INICIALIZA
 	nop
 
-	la a0,Vetor
+	lui a0, 0x00010010
 	li a1,N
 	jal ra, SHOW2
 	nop
 
-	la a0,Vetor
+	lui a0, 0x00010010
 	li a1,N
 	jal ra,SORT
 	nop
 
-	la a0,Vetor
+	lui a0, 0x00010010
 	li a1,N
 	jal ra,SHOW2
 	nop
@@ -107,6 +107,9 @@ exit1: 	nop
 	lw s2,8(sp)
 	lw s3,12(sp)
 	lw ra,16(sp)
+	nop
+	nop
+	nop
 	addi sp,sp,20
 	nop
     	nop
