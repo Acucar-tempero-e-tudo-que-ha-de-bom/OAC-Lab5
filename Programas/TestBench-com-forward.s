@@ -146,6 +146,9 @@ OK9:
     		addi x4, x0, 10   	# x4 = 10	
 		sw x4, 0(x3)      	# salva x4 na memoria
     		lw x5, 0(x3)      	# carrega valor da memoria em x5
+    		nop
+    		nop
+    		nop
     		jal x11, T10
     		nop
 
