@@ -28,8 +28,6 @@ FINAL:	jal zero, FINAL
 
 SWAP:	slli t1,a1,2
 	add t1,a0,t1
-	nop
-	nop
 	lw t0,0(t1)
 	lw t2,4(t1)
 	nop
@@ -41,8 +39,6 @@ SWAP:	slli t1,a1,2
 	nop
 
 SORT:	addi sp,sp,-20
-	nop
-	nop
 	sw ra,16(sp)
 	sw s3,12(sp)
 	sw s2,8(sp)
@@ -63,8 +59,6 @@ for2:	blt s1,zero,exit2
 	nop
 	slli t1,s1,2
 	add t2,s2,t1
-	nop
-	nop
 	lw t3,0(t2)
 	lw t4,4(t2)
 	nop
