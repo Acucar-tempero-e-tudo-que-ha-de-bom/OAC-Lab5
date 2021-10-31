@@ -121,7 +121,7 @@ T7:
 OK7:
     		# auipc
     		auipc x10, 0				# x10 = PC (com auipc)
-    		addi x9, x11, 12			# x9 = PC
+    		addi x9, x11, 24			# x9 = PC
     		jal x11, T8
     		nop
 
